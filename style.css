@@ -194,14 +194,14 @@ a:hover {
 }
 
 .zeki-circle {
-  width: clamp(200px, 30vw, 300px);
-  height: clamp(200px, 30vw, 300px);
+  width: clamp(240px, 34vw, 360px);
+  height: clamp(240px, 34vw, 360px);
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff6dc, #ffd9b9);
+  background: radial-gradient(circle at 35% 30%, #fff6dc, #ffd9b9 75%, #f5be99);
   border: 8px solid #ffffff;
   box-shadow:
     0 20px 60px rgba(45, 42, 74, 0.3),
-    inset 0 -10px 30px rgba(232, 182, 143, 0.4);
+    inset 0 -14px 30px rgba(232, 182, 143, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,22 +209,40 @@ a:hover {
   animation: float 4s ease-in-out infinite;
 }
 
-.zeki-circle::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 70% 70%,
-    transparent 60%,
-    rgba(108, 92, 231, 0.15)
-  );
+.zeki-img {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(45, 42, 74, 0.25));
 }
 
-.zeki-emoji {
-  font-size: clamp(80px, 12vw, 130px);
-  filter: drop-shadow(0 6px 0 rgba(255, 168, 1, 0.6));
+.zeki-spark {
+  position: absolute;
+  font-size: clamp(28px, 3.5vw, 44px);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(255, 168, 1, 0.5));
+}
+
+.zeki-spark-1 {
+  top: 8%;
+  right: 4%;
+  animation: spark-pop 2.4s ease-in-out infinite;
+}
+
+.zeki-spark-2 {
+  top: 12%;
+  left: 6%;
+  font-size: clamp(20px, 2.6vw, 32px);
+  animation: spark-pop 2.4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.zeki-spark-3 {
+  bottom: 14%;
+  right: -2%;
+  font-size: clamp(22px, 2.8vw, 36px);
+  animation: spark-pop 2.4s ease-in-out infinite;
+  animation-delay: 1.2s;
 }
 
 @keyframes float {
@@ -233,6 +251,17 @@ a:hover {
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@keyframes spark-pop {
+  0%, 100% {
+    transform: scale(0.85) rotate(-8deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1) rotate(8deg);
+    opacity: 1;
   }
 }
 
